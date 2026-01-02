@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* --- 1. CORE BRAND IDENTITY (UPDATED) --- */
+    /* Primary: Electric Indigo (Modern, Deep, Tech-forward) */
+    /* Was Blue, now a punchier Indigo/Violet */
+    --color-primary: 252 85% 60%;      /* ~#6366f1 */
+    
+    /* Secondary: Luminous Fuchsia (High Energy) */
+    /* Was Violet, now a hot Pink/Magenta to contrast the Indigo */
+    --color-secondary: 320 90% 55%;    /* ~#e81cff */
+    
+    /* --- 2. SEMANTIC CATEGORY COLORS --- */
+    --color-accent-dev: 217 91% 60%;      /* Bright Blue */
+    --color-accent-design: 322 81% 43%;   /* Deep Pink */
+    --color-accent-marketing: 22 100% 50%; /* Vibrant Orange */
+    --color-accent-tech: 160 84% 39%;     /* Emerald */
+
+    /* --- 3. INTELLIGENT SURFACES --- */
+    --color-bg-page: 210 40% 98%;      
+    --color-bg-card: 0 0% 100%;        
+    --color-bg-dark: 222 47% 11%;      
+    
+    /* --- 4. READABLE TEXT --- */
+    --color-text-main: 222 47% 11%;    
+    --color-text-muted: 215 16% 47%;   
+    --color-text-inverse: 0 0% 100%;   
+
+    /* --- 5. EFFECTS --- */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: hsl(var(--color-bg-page));
+    color: hsl(var(--color-text-main));
+    direction: rtl; 
+  }
+
+  body {
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+/* --- UTILITIES --- */
+
+/* UPDATED: Text Gradient 
+   Uses the new tighter color palette for a seamless flow 
+*/
+.text-gradient {
+  background: linear-gradient(to right, hsl(var(--color-primary)), hsl(var(--color-secondary)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* UPDATED: The "Liquid" Gradient Button 
+   This creates a gradient that is 200% wide and slides on hover 
+*/
+.btn-glow {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  
+  /* We define the gradient here: Primary -> Secondary -> Primary */
+  background-image: linear-gradient(
+    45deg, 
+    hsl(var(--color-primary)), 
+    hsl(var(--color-secondary)), 
+    hsl(var(--color-primary))
+  );
+  
+  /* Make the background large so we can slide it */
+  background-size: 200% auto;
+  color: hsl(var(--color-text-inverse));
+  border: none;
+}
+
+/* The Hover Animation */
+.btn-glow:hover {
+  /* This moves the gradient background, creating a "shimmer" or "flow" effect */
+  background-position: right center;
+  
+  /* Slight lift */
+  transform: translateY(-2px);
+  
+  /* Colored shadow glow matching the primary color */
+  box-shadow: 0 10px 25px -5px hsl(var(--color-primary) / 0.4);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
