@@ -179,6 +179,14 @@ const Navbar = ({ dict, lang = 'ar' }) => {
             </Link>
 
           <Link
+            href={`/${lang === 'en' ? 'en/' : ''}quote`}
+            className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-secondary text-white rounded-xl text-sm font-bold shadow-lg shadow-secondary/20 hover:-translate-y-0.5 hover:bg-secondary/90 transition-all border border-secondary"
+          >
+             <span className="animate-pulse">✨</span>
+            <span>{dict.navbar.quote || (lang === 'en' ? 'Get a Quote' : 'احسب تكلفة مشروعك')}</span>
+          </Link>
+
+          <Link
             href={`/${lang === 'en' ? 'en/' : ''}contact`}
             className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-inverse rounded-xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all"
           >
@@ -256,6 +264,16 @@ const Navbar = ({ dict, lang = 'ar' }) => {
               <ArrowUpLeft
                 className="w-6 h-6 text-muted group-active:text-primary rtl:rotate-0 ltr:rotate-90"
               />
+            </Link>
+
+            {/* ADDED: Quote Button in Mobile Menu */}
+            <Link
+              href={`/${lang === 'en' ? 'en/' : ''}quote`}
+              onClick={() => toggleMenu(false)}
+              className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary flex items-center justify-between group"
+            >
+              {dict.navbar.quote || (lang === 'en' ? 'Get a Quote' : 'احسب تكلفة مشروعك')}
+              <span className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">✨</span>
             </Link>
 
             <div className="pt-6 border-t border-foreground/10">
