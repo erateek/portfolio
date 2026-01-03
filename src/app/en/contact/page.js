@@ -7,20 +7,20 @@ export const metadata = {
   title: {
     absolute: 'Contact Us | Erateek - Digital Agency',
   },
-  description: 'Contact us today to start your digital success journey. Erateech Digital Agency in Yemen is ready to help you.',
-  keywords: ['Contact Us', 'Call Us', 'Digital Agency Sanaa', 'Digital Consultation', 'erateech'],
+  description: 'Contact us today to start your digital success journey. Erateek Digital Agency in Yemen is ready to help you.',
+  keywords: ['Contact Us', 'Call Us', 'Digital Agency Sanaa', 'Digital Consultation', 'erateek'],
   openGraph: {
-    title: 'Contact Us | Erateech - Digital Agency',
+    title: 'Contact Us | Erateek - Digital Agency',
     description: 'Contact us today to start your digital success journey.',
-    url: 'https://erateech.com/en/contact',
-    siteName: 'Erateech - Digital Agency',
+    url: 'https://erateek.com/en/contact',
+    siteName: 'Erateek - Digital Agency',
     locale: 'en_US',
     type: 'website',
     label: '+967 776-007-572',
     href: 'tel:+967776007572',
   },
   alternates: {
-    canonical: 'https://erateech.com/en/contact',
+    canonical: 'https://erateek.com/en/contact',
   },
 };
 

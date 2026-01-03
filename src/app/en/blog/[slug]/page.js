@@ -25,19 +25,19 @@ export async function generateMetadata({ params }) {
   
   if (!post) {
     return {
-      title: 'Post Not Found | Erateech',
+      title: 'Post Not Found | Erateek',
     };
   }
 
   return {
-    title: `${post.title} | Erateech`,
+    title: `${post.title} | Erateek`,
     description: post.description,
     keywords: post.tags?.join(', '),
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://erateech.com/en/blog/${slug}`,
-      siteName: 'Erateech - Digital Agency',
+      url: `https://erateek.com/en/blog/${slug}`,
+      siteName: 'Erateek - Digital Agency',
       images: post.image ? [
         {
           url: post.image,

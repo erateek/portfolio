@@ -32,7 +32,7 @@ export async function getAllPosts(locale = 'ar') {
 
   return posts.map(post => ({
     ...post,
-    author: post.author || 'Erateech Team', // Use fetched author or default
+    author: post.author || 'Erateek Team', // Use fetched author or default
     image: post.image?.asset?._ref || post.image?.asset?._id || post.image ? urlForImage(post.image).url() : null,
     content: post.body // Rename body to content to match old structure
   }));
@@ -52,7 +52,7 @@ export async function getPostBySlug(slug, locale = 'ar') {
 
   return {
     ...post,
-    author: post.author || 'Erateech Team',
+    author: post.author || 'Erateek Team',
     image: post.image?.asset?._ref || post.image?.asset?._id || post.image ? urlForImage(post.image).url() : null,
     content: post.body
   };
@@ -68,7 +68,7 @@ export async function getLatestPosts(locale, limit = 3) {
 
   return posts.map(post => ({
     ...post,
-    author: post.author || 'Erateech Team',
+    author: post.author || 'Erateek Team',
     image: post.image ? urlForImage(post.image).url() : null,
     content: post.body
   }));
@@ -84,10 +84,16 @@ export async function getRecommendedPosts(currentSlug, locale, limit = 3) {
 
   return posts.map(post => ({
     ...post,
-    author: post.author || 'Erateech Team',
+    author: post.author || 'Erateek Team',
     image: post.image ? urlForImage(post.image).url() : null,
     // No content needed for preview
   }));
+}
+
+export async function getPostsForSitemap() {
+  const query = `*[_type == "post"] { "slug": slug.current, "language": language, "publishedAt": publishedAt }`;
+  const posts = await client.fetch(query, {}, { next: { revalidate: 60 } });
+  return posts;
 }
 
 export async function getAllPostSlugs() {

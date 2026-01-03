@@ -55,7 +55,7 @@ export const post = defineType({
       name: 'author',
       title: 'Author',
       type: 'string',
-      initialValue: 'Erateech Team',
+      initialValue: 'Erateek Team',
     }),
     defineField({
       name: 'location',

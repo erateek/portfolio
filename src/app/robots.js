@@ -7,7 +7,7 @@ export default function robots() {
         disallow: ['/api/', '/_next/'],
       },
     ],
-    sitemap: 'https://erateech.com/sitemap.xml',
+    sitemap: 'https://erateek.com/sitemap.xml',
   };
 }
 

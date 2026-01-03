@@ -11,13 +11,13 @@ const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
 })
 
 export const metadata = {
-  metadataBase: new URL('https://erateech.com'),
+  metadataBase: new URL('https://erateek.com'),
   title: {
     default: 'إراتيك - وكالة رقمية',
     template: '%s | إراتيك - وكالة رقمية'
   },
   description: 'وكالة رقمية رائدة متخصصة في تقديم حلول رقمية متكاملة ومبتكرة في اليمن وصنعاء',
-  keywords: ['وكالة رقمية', 'تصميم مواقع', 'تطوير ويب', 'اليمن', 'صنعاء', 'خدمات رقمية', 'erateech'],
+  keywords: ['وكالة رقمية', 'تصميم مواقع', 'تطوير ويب', 'اليمن', 'صنعاء', 'خدمات رقمية', 'erateek'],
   authors: [{ name: 'Erateek Agency' }],
   creator: 'Erateek Agency',
   publisher: 'Erateek Agency',
@@ -29,7 +29,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'ar_SA',
-    url: 'https://erateech.com',
+    url: 'https://erateek.com',
     siteName: 'إراتيك - وكالة رقمية',
     title: 'إراتيك - وكالة رقمية',
     description: 'وكالة رقمية رائدة متخصصة في تقديم حلول رقمية متكاملة ومبتكرة في اليمن وصنعاء',
@@ -60,7 +60,7 @@ export const metadata = {
     },
   },
   alternates: {
-    canonical: 'https://erateech.com',
+    canonical: 'https://erateek.com',
   },
 }
 

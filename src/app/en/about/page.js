@@ -6,18 +6,18 @@ export const metadata = {
   title: {
     absolute: 'About Erateek | Our Story & Vision',
   },
-  description: 'Meet the Erateech team, our mission, and vision. Leading digital agency in Yemen specializing in integrated digital solutions.',
-  keywords: ['About Us', 'Erateech Team', 'Digital Agency Sanaa', 'Digital Services Yemen', 'erateech'],
+  description: 'Meet the Erateek team, our mission, and vision. Leading digital agency in Yemen specializing in integrated digital solutions.',
+  keywords: ['About Us', 'Erateek Team', 'Digital Agency Sanaa', 'Digital Services Yemen', 'erateek'],
   openGraph: {
-    title: 'About Us | Erateech - Digital Agency',
-    description: 'Meet the Erateech team, our mission, and vision. Leading digital agency in Yemen.',
-    url: 'https://erateech.com/en/about',
-    siteName: 'Erateech - Digital Agency',
+    title: 'About Us | Erateek - Digital Agency',
+    description: 'Meet the Erateek team, our mission, and vision. Leading digital agency in Yemen.',
+    url: 'https://erateek.com/en/about',
+    siteName: 'Erateek - Digital Agency',
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://erateech.com/en/about',
+    canonical: 'https://erateek.com/en/about',
   },
 };
 
@@ -59,7 +59,7 @@ export default function About() {
               >
                 <h2 className="text-4xl mb-6">Our Story</h2>
                 <p className="text-lg">
-                  At <strong className="text-primary">Erateech</strong>, we believe that digital success starts with a deep understanding of our clients' needs. Since our inception, our goal has been clear: to help companies and brands stand out in the digital world through innovative solutions and effective strategies.
+                  At <strong className="text-primary">Erateek</strong>, we believe that digital success starts with a deep understanding of our clients' needs. Since our inception, our goal has been clear: to help companies and brands stand out in the digital world through innovative solutions and effective strategies.
                 </p>
 
                 <h2 className="text-4xl mt-16 mb-6">Our Vision</h2>

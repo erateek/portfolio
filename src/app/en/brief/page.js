@@ -4,7 +4,7 @@ import ProjectBriefWizard from '../../../components/features/ProjectBriefWizard'
 import { en } from '../../../i18n/dictionaries';
 
 export const metadata = {
-  title: 'Start Your Project | Erateech',
+  title: 'Start Your Project | Erateek',
   description: 'Project brief form to collect client requirements and build brand identity',
 };
 
