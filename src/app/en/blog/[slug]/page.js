@@ -3,7 +3,7 @@ import Footer from '../../../../components/sections/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getPostBySlug, getAllPostSlugs } from '../../../../lib/blog';
+import { getPostBySlug, getAllPostSlugs, getRecommendedPosts } from '../../../../lib/blog';
 import { en } from '../../../../i18n/dictionaries';
 import { PortableText } from '@portabletext/react';
 import { urlForImage } from '../../../../sanity/lib/image';
@@ -65,6 +65,8 @@ export default async function BlogPost({ params }) {
   if (!post) {
     notFound();
   }
+
+  const recommendedPosts = await getRecommendedPosts(slug, 'en', 3);
 
   const readingTime = estimateReadingTime(post.content);
 
@@ -262,6 +264,71 @@ export default async function BlogPost({ params }) {
              </div>
            </div>
         </section>
+
+        {/* --- RECOMMENDED POSTS --- */}
+        {recommendedPosts.length > 0 && (
+          <section className="pb-24 px-4 md:px-6 bg-subtle/30 -mt-20 pt-24 z-0 relative">
+            <div className="container mx-auto max-w-6xl">
+               <div className="flex flex-col md:flex-row items-end justify-between gap-4 mb-12">
+                  <div>
+                     <h2 className="text-3xl md:text-4xl font-black text-foreground mb-2">
+                       Recommended for you
+                     </h2>
+                     <p className="text-muted text-lg">
+                       Articles you might find interesting
+                     </p>
+                  </div>
+                  <Link href="/en/blog" className="text-primary font-bold hover:underline flex items-center gap-2">
+                     View all articles
+                     <ArrowRight className="w-4 h-4" />
+                  </Link>
+               </div>
+
+               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {recommendedPosts.map((recPost) => (
+                     <Link href={`/en/blog/${recPost.slug}`} key={recPost.slug} className="group flex flex-col h-full bg-surface rounded-3xl border border-foreground/5 overflow-hidden hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-2 transition-all duration-300">
+                        <div className="relative aspect-[16/10] overflow-hidden">
+                           {recPost.image ? (
+                             <Image 
+                               src={recPost.image} 
+                               alt={recPost.title} 
+                               fill 
+                               className="object-cover transition-transform duration-700 group-hover:scale-110"
+                             />
+                           ) : (
+                             <div className="w-full h-full bg-subtle flex items-center justify-center">
+                               <span className="text-muted">No Image</span>
+                             </div>
+                           )}
+                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                        <div className="p-6 flex flex-col flex-1">
+                           <div className="flex items-center gap-2 mb-3">
+                              <span className="px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-lg border border-primary/20">
+                                 {recPost.category || 'General'}
+                              </span>
+                              <span className="text-xs text-muted flex items-center gap-1">
+                                 <Calendar className="w-3 h-3" />
+                                 {new Date(recPost.publishDate).toLocaleDateString('en-US')}
+                              </span>
+                           </div>
+                           <h3 className="text-xl font-bold text-foreground mb-3 leading-snug group-hover:text-primary transition-colors line-clamp-2">
+                              {recPost.title}
+                           </h3>
+                           <p className="text-muted text-sm line-clamp-3 mb-4 flex-1">
+                              {recPost.description}
+                           </p>
+                           <div className="flex items-center gap-2 text-primary font-bold text-sm mt-auto">
+                              <span>Read more</span>
+                              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                           </div>
+                        </div>
+                     </Link>
+                  ))}
+               </div>
+            </div>
+          </section>
+        )}
       </main>
 
       {/* --- MOBILE FLOATING SHARE BAR --- */}

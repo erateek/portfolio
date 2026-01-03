@@ -23,6 +23,8 @@ export const metadata = {
     ],
     locale: 'ar_SA',
     type: 'website',
+    label: '+967 776-007-572',
+    href: 'tel:+967776007572',
   },
   twitter: {
     card: 'summary_large_image',
@@ -93,7 +95,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h3 className="font-bold text-foreground mb-1">الهاتف</h3>
-                        <p className="text-muted" dir="ltr">+967 77X XXX XXX</p>
+                        <p className="text-muted" dir="ltr">+967 776-007-572</p>
                       </div>
                     </div>
 

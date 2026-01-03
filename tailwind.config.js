@@ -42,6 +42,8 @@ module.exports = {
 				'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
 				'marquee': 'marquee 30s linear infinite',
 				'marquee2': 'marquee2 30s linear infinite',
+                'scroll': 'scroll 40s linear infinite',
+                'scroll-reverse': 'scroll-reverse 40s linear infinite',
 			},
 			keyframes: {
 				float: {
@@ -60,6 +62,14 @@ module.exports = {
 					'0%': { transform: 'translateX(-100%)' },
 					'100%': { transform: 'translateX(0%)' },
 				},
+                scroll: {
+                    '0%': { transform: 'translateX(0)' },
+                    '100%': { transform: 'translateX(-100%)' }, // Moves LEFT
+                },
+                'scroll-reverse': {
+                    '0%': { transform: 'translateX(-100%)' },
+                    '100%': { transform: 'translateX(0)' }, // Moves RIGHT
+                }
 			}
 		},
 	},

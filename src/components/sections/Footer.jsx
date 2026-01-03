@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { Facebook, Instagram } from 'lucide-react';
 
 const Footer = ({ dict, lang = 'ar' }) => {
   const currentYear = new Date().getFullYear();
@@ -88,6 +89,27 @@ const Footer = ({ dict, lang = 'ar' }) => {
           <p className="text-slate-500 text-sm" dir="ltr">
             &copy; {currentYear} Erateek Agency. {dict.footer.rights}
           </p>
+
+          <div className="flex items-center gap-4">
+            <a 
+              href="https://www.facebook.com/profile.php?id=61585615547596" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-primary hover:scale-110 transition-all duration-300"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-5 h-5" />
+            </a>
+            <a 
+              href="https://www.instagram.com/itserateek/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-[#E1306C] hover:scale-110 transition-all duration-300"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+          </div>
         </div>
       </div>
     </footer>

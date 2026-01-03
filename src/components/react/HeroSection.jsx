@@ -8,8 +8,8 @@ import HeroVisual from './HeroVisual';
 const HeroSection = ({ dict, lang = 'ar' }) => {
   return (
     <section className="relative w-full min-h-[95vh] flex items-center justify-center pt-32 pb-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
-      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-100/50 rounded-full blur-[120px] -z-10 mix-blend-multiply" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-100/50 rounded-full blur-[120px] -z-10 mix-blend-multiply" />
+      <div className="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-blue-100/50 rounded-full blur-[60px] md:blur-[120px] -z-10 mix-blend-multiply" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-100/50 rounded-full blur-[60px] md:blur-[120px] -z-10 mix-blend-multiply" />
 
       <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
         <div className="flex flex-col items-start space-y-8 order-2 lg:order-1 relative z-20 text-start">

@@ -16,6 +16,8 @@ export const metadata = {
     siteName: 'Erateech - Digital Agency',
     locale: 'en_US',
     type: 'website',
+    label: '+967 776-007-572',
+    href: 'tel:+967776007572',
   },
   alternates: {
     canonical: 'https://erateech.com/en/contact',
@@ -80,7 +82,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <h3 className="font-bold text-foreground mb-1">Phone</h3>
-                        <p className="text-muted" dir="ltr">+967 77X XXX XXX</p>
+                        <p className="text-muted" dir="ltr">+967 776-007-572</p>
                       </div>
                     </div>
 

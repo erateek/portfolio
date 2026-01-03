@@ -1,9 +1,26 @@
 import React from 'react';
 
 const ClientMarquee = ({ dict }) => {
-  // Use brands from dictionary if available, otherwise fallback (for safety)
-  const brands = dict?.home?.clients?.brands || ["Brand 1", "Brand 2"];
-  const title = dict?.home?.clients?.title || "Clients";
+  const brands = [
+    { name: "Movies Hub", url: "https://movies.suhaeb.com" },
+    { name: "Hisab", url: "https://hisab.suhaeb.com" },
+  ];
+  
+  // Multiply the list to ensure it covers screens even on 4k monitors
+  const duplicatedBrands = [...brands, ...brands, ...brands, ...brands, ...brands, ...brands]; 
+  const title = dict?.home?.clients?.title || "Success Partners";
+
+  // Shared marquee item component
+  const MarqueeItem = ({ client }) => (
+    <a 
+      href={client.url} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="text-3xl md:text-5xl font-black text-slate-200 hover:text-primary transition-colors cursor-pointer whitespace-nowrap"
+    >
+      {client.name}
+    </a>
+  );
 
   return (
     <section className="py-20 bg-white overflow-hidden">
@@ -11,20 +28,26 @@ const ClientMarquee = ({ dict }) => {
         <p className="text-center text-slate-400 font-bold uppercase tracking-widest text-sm">{title}</p>
       </div>
       
-      <div className="relative flex overflow-x-hidden border-y border-slate-50 py-10 bg-[#fafafa]/50">
-        <div className="animate-marquee whitespace-nowrap flex items-center gap-20">
-          {brands.map((client, idx) => (
-            <span key={idx} className="text-3xl md:text-5xl font-black text-slate-200 hover:text-primary transition-colors cursor-default whitespace-nowrap">
-              {client}
-            </span>
+      {/* 
+        Container with Dir="ltr" to ensure standard left-scrolling behavior regardless of page direction.
+        Use "mask-image" for fade effect on edges.
+      */}
+      <div 
+        className="relative flex overflow-hidden border-y border-slate-50 py-10 bg-[#fafafa]/50" 
+        dir="ltr"
+        style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}
+      >
+        {/* First Marquee Set */}
+        <div className="flex shrink-0 items-center justify-around gap-32 min-w-full animate-scroll px-16 will-change-transform">
+          {duplicatedBrands.map((client, idx) => (
+             <MarqueeItem key={`a-${idx}`} client={client} />
           ))}
         </div>
 
-        <div className="absolute top-10 flex items-center gap-20 animate-marquee2 whitespace-nowrap ml-20">
-          {brands.map((client, idx) => (
-            <span key={idx} className="text-3xl md:text-5xl font-black text-slate-200 hover:text-primary transition-colors cursor-default whitespace-nowrap">
-              {client}
-            </span>
+        {/* Second Marquee Set (Immediate Follow-up) */}
+        <div className="flex shrink-0 items-center justify-around gap-32 min-w-full animate-scroll px-16 will-change-transform">
+          {duplicatedBrands.map((client, idx) => (
+             <MarqueeItem key={`b-${idx}`} client={client} />
           ))}
         </div>
       </div>

@@ -74,6 +74,22 @@ export async function getLatestPosts(locale, limit = 3) {
   }));
 }
 
+export async function getRecommendedPosts(currentSlug, locale, limit = 3) {
+  const query = `*[_type == "post" && language == $locale && slug.current != $currentSlug] | order(publishedAt desc) [0...${limit}] {
+    ${BASE_POST_FIELDS},
+    body
+  }`;
+  
+  const posts = await client.fetch(query, { locale, currentSlug }, { next: { revalidate: 60 } });
+
+  return posts.map(post => ({
+    ...post,
+    author: post.author || 'Erateech Team',
+    image: post.image ? urlForImage(post.image).url() : null,
+    // No content needed for preview
+  }));
+}
+
 export async function getAllPostSlugs() {
   const query = `*[_type == "post"] { "slug": slug.current }`;
   const slugs = await client.fetch(query, {}, { next: { revalidate: 60 } });

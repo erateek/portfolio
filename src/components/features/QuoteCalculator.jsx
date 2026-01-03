@@ -84,15 +84,24 @@ export default function QuoteCalculator({ lang = 'ar' }) {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    const total = calculateTotal();
-    setEstimatedPrice(total);
+    // Calculate High Price
+    const totalHigh = calculateTotal();
+    // Calculate Discounted Price (90% OFF)
+    const totalDiscounted = Math.round(totalHigh * 0.10);
+    
+    setEstimatedPrice(totalDiscounted);
 
     try {
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...contact, selections, total, lang })
+        body: JSON.stringify({ 
+            ...contact, 
+            selections, 
+            totalOriginal: totalHigh, 
+            totalDiscounted: totalDiscounted, 
+            lang 
+        })
       });
       
       if (res.ok) {
@@ -109,24 +118,45 @@ export default function QuoteCalculator({ lang = 'ar' }) {
     return (
       <div className="bg-surface border border-foreground/10 rounded-[2.5rem] p-8 md:p-12 text-center relative overflow-hidden shadow-2xl">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50"></div>
+        
+        {/* Confetti / Celebration vibe could vary, but keeping it clean */}
         <motion.div 
             initial={{ scale: 0.9, opacity: 0 }} 
             animate={{ scale: 1, opacity: 1 }}
             className="relative z-10"
         >
-            <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Sparkles className="w-10 h-10 text-primary" />
+            <div className="w-20 h-20 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Sparkles className="w-10 h-10 text-green-600" />
             </div>
-            <h2 className="text-3xl font-black text-foreground mb-2">{t.successTitle}</h2>
-            <div className="text-5xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary my-8">
-                {t.currency}{estimatedPrice}
+            
+            <h2 className="text-3xl font-black text-foreground mb-4">{t.successTitle}</h2>
+            
+            {/* PRICING REVEAL */}
+            <div className="flex flex-col items-center justify-center gap-2 my-8">
+                <div className="text-xl text-muted line-through decoration-red-500/50 decoration-2">
+                    {t.currency}{Math.round(estimatedPrice * 10)} {/* Helper to show old price */}
+                </div>
+                <div className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-emerald-600">
+                    {t.currency}{estimatedPrice}
+                </div>
+                <div className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-bold border border-red-200 mt-2">
+                    🔥 90% OFF APPLIED
+                </div>
             </div>
-            {/* UPDATED: Generic success message, removed 'sent to email' to avoid confusion */}
+
+            {/* UPDATED: Generic success message */}
             <p className="text-muted mb-8 text-lg">{lang === 'ar' ? 'تم استلام طلبك بنجاح! سيتواصل معك فريقنا قريباً.' : 'Request received successfully! Our team will contact you soon.'}</p>
             
-            <button onClick={() => window.location.href = '/contact'} className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold transition-all shadow-lg hover:shadow-primary/25">
-                {t.bookCall}
-            </button>
+            <div className="flex flex-col md:flex-row gap-4 justify-center">
+               <button onClick={() => window.location.href = `/${lang === 'en' ? 'en/' : ''}brief`} className="bg-gradient-to-r from-primary to-secondary hover:shadow-lg hover:shadow-primary/25 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2">
+                   <Sparkles className="w-5 h-5" />
+                   {lang === 'ar' ? 'ابدأ مشروعك الآن' : 'Start Project Now'}
+               </button>
+               
+               <button onClick={() => window.location.href = '/contact'} className="bg-white border border-slate-200 hover:bg-slate-50 text-slate-700 px-8 py-4 rounded-xl font-bold transition-all shadow-sm">
+                   {t.bookCall}
+               </button>
+            </div>
         </motion.div>
       </div>
     );
@@ -134,8 +164,14 @@ export default function QuoteCalculator({ lang = 'ar' }) {
 
   return (
     <div className="bg-surface/80 backdrop-blur-md border border-foreground/10 rounded-[2.5rem] p-6 md:p-10 shadow-xl relative overflow-hidden min-h-[500px]">
+       
+       {/* DISCOUNT BANNER */}
+       <div className="absolute top-0 right-0 left-0 bg-gradient-to-r from-red-500 to-pink-500 text-white text-center py-2 font-bold text-sm shadow-md z-20">
+            {lang === 'ar' ? '🔥 عرض خاص: خصم 90% لفترة محدودة جداً!' : '🔥 LIMITED OFFER: 90% OFF ENDING SOON!'}
+       </div>
+
        {/* Background Glow */}
-       <div className="absolute top-0 left-0 w-full h-1 bg-foreground/5">
+       <div className="absolute top-0 left-0 w-full h-1 bg-foreground/5 mt-[36px]"> {/* Changed margins to account for banner */}
           <motion.div 
             className="h-full bg-primary" 
             initial={{ width: '0%' }} 
@@ -143,7 +179,7 @@ export default function QuoteCalculator({ lang = 'ar' }) {
           />
        </div>
 
-       <div className="relative z-10 pt-6">
+       <div className="relative z-10 pt-10">
          <AnimatePresence mode='wait'>
             {step === 1 && (
                 <motion.div 
