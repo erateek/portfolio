@@ -190,7 +190,7 @@ const Navbar = ({ dict, lang = 'ar' }) => {
             href={`/${lang === 'en' ? 'en/' : ''}contact`}
             className="hidden md:flex items-center gap-2 px-5 py-2.5 bg-primary text-inverse rounded-xl text-sm font-bold shadow-lg hover:-translate-y-0.5 transition-all"
           >
-            <span>{dict.navbar.cta}</span>
+            <span>{dict.navbar.contact}</span>
           </Link>
 
           <button
