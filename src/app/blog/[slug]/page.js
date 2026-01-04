@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://erateech.com/blog/${slug}`,
+      url: `https://erateek.com/blog/${slug}`,
       siteName: 'إراتيك - وكالة رقمية',
       images: post.image ? [
         {
@@ -258,7 +258,7 @@ export default async function BlogPost({ params }) {
                      <ShareButtons 
                        title={post.title} 
                        text={post.description} 
-                       url={`https://erateech.com/blog/${slug}`} 
+                       url={`https://erateek.com/blog/${slug}`} 
                        lang="ar"
                      />
                   </div>
@@ -345,7 +345,7 @@ export default async function BlogPost({ params }) {
              <ShareButtons 
                title={post.title} 
                text={post.description} 
-               url={`https://erateech.com/blog/${slug}`} 
+               url={`https://erateek.com/blog/${slug}`} 
                iconOnly={true}
                lang="ar"
              />

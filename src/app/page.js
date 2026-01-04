@@ -10,11 +10,11 @@ export const metadata = {
   openGraph: {
     title: 'إراتيك | شريكك الاستراتيجي للنمو الرقمي',
     description: 'وكالة إراتيك تقدم حلول ويب متكاملة: تصميم مواقع، متاجر إلكترونية، وتسويق رقمي.',
-    url: 'https://erateech.com',
+    url: 'https://erateek.com',
     siteName: 'إراتيك - وكالة رقمية',
     images: [
       {
-        url: 'https://erateech.com/og-image.jpg',
+        url: 'https://erateek.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'إراتيك - وكالة رقمية',
@@ -27,10 +27,10 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'إراتيك - وكالة رقمية',
     description: 'وكالة رقمية رائدة متخصصة في تقديم حلول رقمية متكاملة ومبتكرة',
-    images: ['https://erateech.com/og-image.jpg'],
+    images: ['https://erateek.com/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://erateech.com',
+    canonical: 'https://erateek.com',
   },
 };
 

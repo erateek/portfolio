@@ -11,13 +11,13 @@ export const metadata = {
   openGraph: {
     title: 'Erateek | Your Strategic Partner for Digital Growth',
     description: 'Erateek Agency provides integrated web solutions: Website Design, E-commerce, and Digital Marketing.',
-    url: 'https://erateech.com/en',
+    url: 'https://erateek.com/en',
     siteName: 'Erateek - Digital Agency',
     locale: 'en_US',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://erateech.com/en',
+    canonical: 'https://erateek.com/en',
   },
 };
 

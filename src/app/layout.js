@@ -21,6 +21,11 @@ export const metadata = {
   authors: [{ name: 'Erateek Agency' }],
   creator: 'Erateek Agency',
   publisher: 'Erateek Agency',
+  icons: {
+    icon: '/icon.png',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -82,6 +87,24 @@ export default function RootLayout({ children }) {
           shadow="0 0 10px #6366f1,0 0 5px #6366f1"
         />
         <div className="fixed inset-0 opacity-[0.03] pointer-events-none z-[9999]" style={{backgroundImage: "url('/noise.svg')"}}></div>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Organization',
+              name: 'Erateek Agency',
+              url: 'https://erateek.com',
+              logo: 'https://erateek.com/icon.png',
+              sameAs: [
+                'https://facebook.com/erateek',
+                'https://instagram.com/erateek',
+              ],
+              description: 'Leading digital agency in Yemen specializing in web design, development, and digital marketing.',
+              image: 'https://erateek.com/og-image.jpg',
+            }),
+          }}
+        />
         {children}
       </body>
     </html>

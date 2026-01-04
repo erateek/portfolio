@@ -256,7 +256,7 @@ export default async function BlogPost({ params }) {
                     <ShareButtons 
                       title={post.title} 
                       text={post.description} 
-                      url={`https://erateech.com/en/blog/${slug}`} 
+                      url={`https://erateek.com/en/blog/${slug}`} 
                       lang="en"
                     />
                   </div>
@@ -343,7 +343,7 @@ export default async function BlogPost({ params }) {
              <ShareButtons 
                title={post.title} 
                text={post.description} 
-               url={`https://erateech.com/en/blog/${slug}`} 
+               url={`https://erateek.com/en/blog/${slug}`} 
                iconOnly={true}
                lang="en"
              />

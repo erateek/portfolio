@@ -7,15 +7,15 @@ import { ar } from '../../i18n/dictionaries';
 export const metadata = {
   title: 'تواصل معنا',
   description: 'تواصل معنا اليوم لنبدأ رحلة النجاح الرقمي. وكالة إراتيك الرقمية في صنعاء، اليمن جاهزة لمساعدتك.',
-  keywords: ['تواصل معنا', 'اتصل بنا', 'وكالة رقمية صنعاء', 'استشارة رقمية', 'erateech'],
+  keywords: ['تواصل معنا', 'اتصل بنا', 'وكالة رقمية صنعاء', 'استشارة رقمية', 'erateek'],
   openGraph: {
     title: 'تواصل معنا | إراتيك - وكالة رقمية',
-    description: 'تواصل معنا اليوم لنبدأ رحلة النجاح الرقمي. وكالة إراتيك الرقمية في صنعاء، اليمن',
-    url: 'https://erateech.com/contact',
+    description: 'تواصل معنا اليوم لبدء رحلة نجاحك الرقمي.',
+    url: 'https://erateek.com/contact',
     siteName: 'إراتيك - وكالة رقمية',
     images: [
       {
-        url: 'https://erateech.com/og-image.jpg',
+        url: 'https://erateek.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'تواصل معنا - إراتيك',
@@ -30,10 +30,10 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'تواصل معنا | إراتيك',
     description: 'تواصل معنا اليوم لنبدأ رحلة النجاح الرقمي',
-    images: ['https://erateech.com/og-image.jpg'],
+    images: ['https://erateek.com/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://erateech.com/contact',
+    canonical: 'https://erateek.com/contact',
   },
 };
 

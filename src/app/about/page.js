@@ -5,16 +5,16 @@ import { ar } from '../../i18n/dictionaries';
 
 export const metadata = {
   title: 'من نحن | إراتيك - قصتنا ورؤيتنا',
-  description: 'تعرف على فريق إراتيك ورسالتنا ورؤيتنا. وكالة رقمية رائدة في اليمن وصنعاء متخصصة في تقديم حلول رقمية متكاملة.',
-  keywords: ['من نحن', 'فريق إراتيك', 'وكالة رقمية صنعاء', 'خدمات رقمية اليمن', 'erateech'],
+  description: 'تعرف على فريق إراتيك ورؤيتنا ومهمتنا في قيادة التحول الرقمي في اليمن.',
+  keywords: ['من نحن', 'فريق إراتيك', 'وكالة رقمية صنعاء', 'حلول رقمية', 'erateek'],
   openGraph: {
     title: 'من نحن | إراتيك - وكالة رقمية',
-    description: 'تعرف على فريق إراتيك ورسالتنا ورؤيتنا. وكالة رقمية رائدة في اليمن وصنعاء.',
-    url: 'https://erateech.com/about',
+    description: 'تعرف على فريق إراتيك ورؤيتنا ومهمتنا.',
+    url: 'https://erateek.com/about',
     siteName: 'إراتيك - وكالة رقمية',
     images: [
       {
-        url: 'https://erateech.com/og-image.jpg',
+        url: 'https://erateek.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'من نحن - إراتيك',
@@ -27,10 +27,10 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'من نحن | إراتيك',
     description: 'تعرف على فريق إراتيك ورسالتنا ورؤيتنا',
-    images: ['https://erateech.com/og-image.jpg'],
+    images: ['https://erateek.com/og-image.jpg'],
   },
   alternates: {
-    canonical: 'https://erateech.com/about',
+    canonical: 'https://erateek.com/about',
   },
 };
 
